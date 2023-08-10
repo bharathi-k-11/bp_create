@@ -1,0 +1,21 @@
+<mvc:View
+	height="100%"
+	controllerName="fiori.bp.team4.controller.CreatePartner"
+	xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Page
+		id="page"
+		showHeader="true" >
+		<customHeader>
+			<Bar>
+				<contentRight>
+					<Button icon="sap-icon://nav-back" press="onPrevious"></Button>
+					<ToolbarSpacer></ToolbarSpacer>
+					<Button id="save" text="Save" press="savePartner" />
+				</contentRight>
+			</Bar>
+		</customHeader>
+        <core:Fragment fragmentName="fiori.bp.team4.fragments.CreatePartner" type="XML" /> 
+	</Page>
+</mvc:View>

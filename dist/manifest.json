@@ -1,0 +1,96 @@
+{
+    "_version": "1.1.0",
+    "sap.app":{
+        "id":"fiori.bp.team4",
+        "type":"application",
+        "applicationVersion":{
+            "version":"1.0.0"
+        },
+        "i18n":"i18n/i18n.properties",
+        "title":"{{appTitle}}",
+        "description":"{{appDescription}}",
+        "dataSources": {
+            "bharathiService":{
+                "uri":"/sap/opu/odata/sap/ZLEN_FIORI4_ODATA_SRV_01",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui":{
+        "deviceTypes":{
+            "phone": true,
+            "desktop": true,
+            "tablet": true
+        },
+        "fullWidth": true,
+        "supportedThemes": ["sap_bluecrystal","sap_fiori_3","sap_fiori_3_dark"],
+        "technology": "UI5"
+    },
+    "sap.ui5":{
+        "contentDensities":{"compact":true, "cozy":true},
+        "dependencies": {
+            "minUI5Version": "1.90",
+            "libs": {
+                "sap.m":{},
+                "sap.ui.layout":{},
+                "sap.ui.comp":{}
+            }
+        },
+        "rootView":{
+            "viewName": "fiori.bp.team4.view.Home",
+            "id": "idRootView",
+            "type": "XML"
+        },
+        "routing": {
+            "config":{
+                "routerClass": "sap.m.routing.Router",
+                "viewPath": "fiori.bp.team4.view",
+                "async" : true,
+                "clearTarget" : true,
+                "viewType": "XML",
+                "controlId":"AppCon",
+                "controlAggregation": "pages"
+            },
+            "routes":[
+                {
+                    "name": "home",
+                    "pattern":"",
+                    "target":["Home"]
+                },
+                {
+                    "name":"createPartner",
+                    "pattern":"createPartner",
+                    "target":["CreatePartner"]
+                }
+            ],
+            "targets": {
+                "Home":{
+                    "viewName": "Home",
+                    "viewId": "idHome",
+                    "controlAggregation": "pages"
+                },
+                "CreatePartner":{
+                    "viewName":"CreatePartner",
+                    "viewId":"idCreatePartner",
+                    "controlAggregation": "pages"
+                }
+            }
+        },
+        "models": {
+            "":{
+                "type":"sap.ui.model.odata.v2.ODataModel",
+                "dataSource": "bharathiService"
+            }
+        },
+        "resources": {
+            "css":[
+                {
+                    "uri":"css/style.css"
+                }
+            ]
+        }
+    }
+}

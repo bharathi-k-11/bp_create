@@ -1,0 +1,14 @@
+specVersion: '3.0'
+metadata:
+  name: bp_fiori
+type: application
+server:
+  customMiddleware:
+  - name: fiori-tools-proxy
+    afterMiddleware: compression
+    configuration:
+      ignoreCertError: true
+      backend:
+      - path: /sap/opu/odata
+        url: http://s4mdg.nrclouds.com:8029
+        destination: BHARATHICONNECT
